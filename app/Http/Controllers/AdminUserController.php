@@ -16,7 +16,7 @@ class AdminUserController extends Controller {
     }*/
 
 	public function getList(){
-		$admin = Admin::select('id','name','level','email','username')->get();
+		$admin = Admin::select('id','name','email','username')->get();
 		return view('admin.list',compact('admin'));
 	}
 
@@ -31,7 +31,6 @@ class AdminUserController extends Controller {
 		$user->email = $request->txtEmail;
 		$user->password = Hash::make($request->txtPass);
 		$user->remember_token = $request->_token;
-		$user->level = $request->rdoLevel;
 		$user->save();
 		return redirect()->route('admin.getList')->with(['flash_level'=>'success','flash_message'=>'Success!! Complete Add User']);
 	}
@@ -70,7 +69,6 @@ class AdminUserController extends Controller {
 		$user->name = $request->txtName;
 		$user->password = Hash::make($request->txtPass);
 		$user->email = $request->txtEmail;
-		$user->level = $request->rdoLevel;
 		$user ->save();
 		return redirect()->route('admin.getList')->with(['flash_level'=>'success','flash_message'=>'Success!! Complete Update User']);
 	}

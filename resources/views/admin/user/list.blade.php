@@ -21,11 +21,11 @@
                                 <th>ID</th>
                                 <th>Name</th>
                                 <th>Email</th>
-                                <th>Active</th>
+                               
                                 <th>Delete</th>
-                                @if((Auth::user()->id)==2)
+                                
                                 <th>Edit</th>
-                                @endif
+                               
                             </tr>
                         </thead>
                         <tbody>

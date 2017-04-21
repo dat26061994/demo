@@ -11,12 +11,12 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+/*Route::get('/', function () {
+    return view('user.pages.home');
+});*/
 
 Auth::routes();
-
+Route::get('/', 'WelcomeController@index');
 Route::get('/home', 'HomeController@index');
 Route::get('/admin', 'AdminController@index');
 
@@ -53,3 +53,5 @@ Route::prefix('admin')->group(function(){
 			
 	});	
 });
+
+Route::get('product/{id}/{name}',['as'=>'product','uses'=>'WelcomeController@thisProduct']);
